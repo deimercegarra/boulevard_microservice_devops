@@ -5,7 +5,7 @@
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
 
 trigger:
-  - feature/hu-17/traceability
+  - main
 
 pool: myselfhostedagent
 
@@ -20,6 +20,6 @@ steps:
   - task: Docker@2
     inputs:
       containerRegistry: 'docker-hub-connection'
-      repository: 'deimercegarra/boulevard'
+      repository: 'deimercegarra/boulevard_micro_devops'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
