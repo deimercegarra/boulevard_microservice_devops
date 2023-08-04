@@ -1,0 +1,25 @@
+# Gradle
+
+# Build your Java project and run tests with Gradle using a Gradle wrapper script.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+  - feature/hu-17/traceability
+
+pool: myselfhostedagent
+
+steps:
+  - task: Gradle@3
+    displayName: 'Building gradle project'
+    inputs:
+      gradleWrapperFile: 'gradlew'
+      tasks: 'clean build'
+      jdkVersionOption: '1.17'
+
+  - task: Docker@2
+    inputs:
+      containerRegistry: 'docker-hub-connection'
+      repository: 'deimercegarra/boulevard'
+      command: 'buildAndPush'
+      Dockerfile: '**/Dockerfile'

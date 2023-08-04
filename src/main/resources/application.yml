@@ -1,0 +1,33 @@
+server:
+  port: 8083
+
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/boulevard
+#    username: root
+#    password: Pr@gm4
+
+spring:
+  datasource:
+    url: jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard
+    username: admin
+    password: Pragm4123
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  application:
+    name: boulevard-microservice
+
+
+user_microservice:
+  name: "user-microservice"
+  url: "http://localhost:8082"
+
+messaging_microservice:
+  name: "messaging-microservice"
+  url: "http://localhost:8085"
+
+appDescription: "Pragma boulevard"
+appVersion: "1.0.0"
