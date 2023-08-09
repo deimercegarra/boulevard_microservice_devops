@@ -9,14 +9,12 @@ server:
 
 spring:
   datasource:
-#    url: jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard
-#    username: admin
-#    password: Pragm4123
-
-    url: jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard
-    username: admin
-#    password: Pragm4123
-    password: ${DB_PASSWORD}
+    url: ${DB_URL:jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard}
+    username: ${DB_USERNAME:admin}
+    password: ${DB_PASSWORD:Pragm4123}
+  #    url: jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard
+  #    username: admin
+  #    password: Pragm4123
 
   jpa:
     hibernate:
