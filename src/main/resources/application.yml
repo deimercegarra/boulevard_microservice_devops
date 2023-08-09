@@ -16,7 +16,7 @@ spring:
     url: jdbc:mysql://boulevard.cl7ufzpqpjod.us-east-2.rds.amazonaws.com:3306/boulevard
     username: admin
 #    password: Pragm4123
-    password: ${DB_PASSWORD:Pragm4123}
+    password: ${DB_PASSWORD}
 
   jpa:
     hibernate:

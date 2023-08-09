@@ -22,5 +22,6 @@ steps:
     inputs:
       containerRegistry: 'docker-hub-connection'
       repository: 'deimercegarra/boulevard_micro_devops'
+      tags: 'latest'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
