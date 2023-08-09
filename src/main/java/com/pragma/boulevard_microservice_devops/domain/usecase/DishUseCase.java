@@ -16,14 +16,10 @@ public class DishUseCase implements IDishServicePort {
 
     private final IDishPersistencePort iDishPersistencePort;
     private final IRestaurantPersistencePort iRestaurantPersistencePort;
-    private final IUserPersistencePort iUserPersistencePort;
-
     public DishUseCase(IDishPersistencePort iDishPersistencePort,
-                       IRestaurantPersistencePort iRestaurantPersistencePort,
-                       IUserPersistencePort iUserPersistencePort) {
+                       IRestaurantPersistencePort iRestaurantPersistencePort) {
         this.iDishPersistencePort = iDishPersistencePort;
         this.iRestaurantPersistencePort = iRestaurantPersistencePort;
-        this.iUserPersistencePort = iUserPersistencePort;
     }
 
     @Override
@@ -33,14 +29,12 @@ public class DishUseCase implements IDishServicePort {
 
     @Override
     public CommonResponseModel saveDish(DishModel dishModel) {
-        CommonResponseModel commonResponseModel = new CommonResponseModel();
-
         RestaurantModel restaurantModel = iRestaurantPersistencePort.getRestaurant(dishModel.getRestaurantId());
 
         if (restaurantModel == null)
             throw new DomainException("Restaurant not found.");
 
-        if (! (dishModel.getUserId() == restaurantModel.getIdOwner()) )
+        if (! (dishModel.getUserId().equals(restaurantModel.getIdOwner())) )
             throw new DomainException("Unauthorized user.");
 
         iDishPersistencePort.saveDish(dishModel);
