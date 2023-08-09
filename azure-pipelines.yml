@@ -16,7 +16,7 @@ steps:
   - task: SonarCloudPrepare@1
     displayName: "Preparing sonar cloud"
     inputs:
-      SonarCloud: 'Sonar'
+      SonarCloud: 'sonar-connection'
       organization: 'deimercegarra'
       scannerMode: 'Other'
   - task: Gradle@3
