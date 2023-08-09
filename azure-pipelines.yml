@@ -11,12 +11,25 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
+  - checkout: self
+    fetchDepth: 0
+  - task: SonarCloudPrepare@1
+    displayName: "Preparing sonar cloud"
+    inputs:
+      SonarCloud: 'Sonar'
+      organization: 'deimercegarra'
+      scannerMode: 'Other'
   - task: Gradle@3
     displayName: 'Building gradle project'
     inputs:
       gradleWrapperFile: 'gradlew'
       tasks: 'clean build'
       jdkVersionOption: '1.17'
+
+  - task: SonarCloudPublish@1
+    displayName: 'Publishing sonarResults'
+    inputs:
+      pollingTimeoutSec: '300'
 
   - task: Docker@2
     inputs:
@@ -25,3 +38,5 @@ steps:
       tags: 'latest'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
+
+

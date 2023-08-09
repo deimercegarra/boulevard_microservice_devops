@@ -56,3 +56,14 @@ jacocoTestReport {
 		xml.required = true
 	}
 }
+
+sonar{
+	properties{
+		property "sonar.host.url", "https://sonarcloud.io" // URL del servidor de SonarCloud
+		property "sonar.projectKey", "deimercegarra_RutaDevOPS" // Clave única de tu proyecto en SonarCloud
+		property "sonar.projectName", "RutaDevOPS"
+		property "sonar.exclusions", "src/main/java/com/pragma/boulevard_microservice_devops/infrastructure/**/*"
+		property "sonar.exclusions", "src/main/java/com/pragma/boulevard_microservice_devops/application/**/*"
+		property "sonar.exclusions", "src/main/java/com/pragma/boulevard_microservice_devops/domain/model/*"
+	}
+}
