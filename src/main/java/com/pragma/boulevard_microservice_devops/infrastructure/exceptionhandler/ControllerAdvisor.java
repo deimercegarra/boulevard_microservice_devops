@@ -25,7 +25,7 @@ public class ControllerAdvisor {
             NoDataFoundException ignoredNoDataFoundException) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND)
                 .body(Collections.singletonMap(MESSAGE,
-                        ignoredNoDataFoundException.getMessage() != null ? ignoredNoDataFoundException.getMessage() : "No data found for the requested petition"));
+                        ignoredNoDataFoundException.getMessage() != null ? ignoredNoDataFoundException.getMessage() : "No data found for the requested petition. prueba deploy"));
     }
 
     @ExceptionHandler(CategoryNotFoundException.class)
