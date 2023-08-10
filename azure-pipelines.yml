@@ -38,6 +38,7 @@ steps:
       tags: 'latest'
       command: 'buildAndPush'
       Dockerfile: '**/Dockerfile'
-  - task: CmdLine@2
-    inputs:
-      script: 'aws ecs update-service --cluster RutaDevopsCluster --service BoulevardService --desired-count 1 --task-definition BoulevardTaskDefinition --force-new-deployment --region us-east-2'
+
+#  - task: CmdLine@2
+#    inputs:
+#      script: 'aws ecs update-service --cluster RutaDevopsCluster --service BoulevardService --desired-count 1 --task-definition BoulevardTaskDefinition --force-new-deployment --region us-east-2'
